@@ -2,12 +2,12 @@ from django.db import models
 from django.urls import reverse
 # Create your models here.
 CHOICES = [
-    'We work together in the same team or on the same project',
-    'Blaise was under my responsability',
-    'I was under his responsability',
-    'We work together inderectly',
-    "I was his customer",
-    "I heard about his skills",
+    ('we work together in the same team or on the same project','We work together in the same team or on the same project'), 
+    ('blaise was under my responsability','Blaise was under my responsability'),
+    ('i was under his responsability','I was under his responsability'),
+    ('we work together inderectly','We work together inderectly'),
+    ("i was his customer","I was his customer"),
+    ("i heard about his skills","I heard about his skills"),
 ]
 
 class Recommendation (models.Model):
