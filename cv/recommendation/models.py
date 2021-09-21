@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 # Create your models here.
 CHOICES = [
     ('we work together in the same team or on the same project','We work together in the same team or on the same project'), 
@@ -16,6 +17,12 @@ class Recommendation (models.Model):
     job = models.CharField(max_length=50)
     relationship = models.CharField(max_length=200,choices=CHOICES)
     comment = models.TextField(max_length=1000,blank=True,null=True,default=None)
+    create_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(blank=True,null=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
 
     def get_absolute_url(self):
         return reverse("recommendation_detail", kwargs={"pk": self.pk})
