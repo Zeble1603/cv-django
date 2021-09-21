@@ -5,7 +5,6 @@ from .models import Recommendation
 from .forms import RecommendationForm
 from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView,ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Recommendation
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
