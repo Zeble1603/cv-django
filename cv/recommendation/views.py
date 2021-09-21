@@ -43,6 +43,7 @@ class RecoListView(LoginRequiredMixin,ListView):
 
 class RecoDeleteView(LoginRequiredMixin,DeleteView):
     model = Recommendation
+    template_name = "reco_delete.html"
     success_url = reverse_lazy('reco_list')
 
 @login_required
