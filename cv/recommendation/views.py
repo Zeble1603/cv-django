@@ -1,13 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
+from django.urls.base import reverse, reverse_lazy
 from django.utils import timezone
 from .models import Recommendation
 from .forms import RecommendationForm
-from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView,ListView
+from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView,ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Recommendation
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
 
 class RecoCreateView(CreateView):
     model = Recommendation
@@ -22,14 +23,32 @@ class ValidRecoListView(ListView):
     def get_queryset(self):
         return super().get_queryset().filter(publish_date__lte=timezone.now()).order_by("-publish_date")
 
+class RecoDetailView(LoginRequiredMixin,DetailView):
+    model = Recommendation
+    template_name = "reco_detail.html"
+
+
 class RecoUpdateView(LoginRequiredMixin,UpdateView):
-    pass
+    model = Recommendation
+    form_class = RecommendationForm
+    template_name = "reco_update.html"
+    redirect_field_name = 'recommendation/reco_list.html'
+    #if doesn't work, check login settings
 
 class RecoListView(LoginRequiredMixin,ListView):
-    pass
+    model = Recommendation
+    template_name = "reco_list.html"
+
+    def get_queryset(self):
+        return super().get_queryset().filter(publish_date__isnull=True).order_by('-create_date')
 
 class RecoDeleteView(LoginRequiredMixin,DeleteView):
-    pass
+    model = Recommendation
+    success_url = reverse_lazy('reco_list')
 
-
+@login_required
+def reco_publish(request,pk):
+    reco = get_object_or_404(Recommendation,pk)
+    reco.publish()
+    return redirect('reco_detail',pk=pk)
 
