@@ -8,8 +8,12 @@ from .models import Recommendation
 
 # Create your views here.
 
+
 class RecoCreateView(CreateView):
-    pass
+    model = Recommendation
+    template_name = "reco_create.html"
+    form_class = RecommendationForm
+
 
 class ValidRecoListView(ListView):
     model = Recommendation
@@ -17,7 +21,6 @@ class ValidRecoListView(ListView):
 
     def get_queryset(self):
         return super().get_queryset().filter(publish_date__lte=timezone.now()).order_by("-publish_date")
-
 
 class RecoUpdateView(LoginRequiredMixin,UpdateView):
     pass
