@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+app_name = "reco"
+
 urlpatterns = [
     path("", views.ValidRecoListView.as_view(), name="validreco_list"),
     path("list", views.RecoListView.as_view(), name="reco_list"),

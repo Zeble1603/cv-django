@@ -19,6 +19,8 @@ from django.contrib.auth import views as auth_views
 from recommendation.forms import CustomLoginForm
 from . import views
 
+app_name = 'index'
+
 urlpatterns = [
     path('', views.IndexView.as_view(), name='home'),
     path('work/', views.WorkView.as_view(), name='work'),

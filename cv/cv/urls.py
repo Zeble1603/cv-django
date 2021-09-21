@@ -20,8 +20,8 @@ from recommendation.forms import CustomLoginForm
 
 
 urlpatterns = [
-    path('',include('index.urls')),
-    path("reco/", include('recommendation.urls')),
+    path('',include('index.urls',namespace='index')),
+    path("reco/", include('recommendation.urls',namespace='reco')),
     path('admin/', admin.site.urls),
     path("login/", auth_views.LoginView.as_view(authentication_form=CustomLoginForm), name = "login"),
     path("logout/", auth_views.LogoutView.as_view(), name = "logout", kwargs={'next_page': '/'}),
