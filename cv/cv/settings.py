@@ -17,7 +17,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = BASE_DIR / 'templates'
 RECOMMENDATION_DIR = BASE_DIR / 'recommendation/templates/recommendation'
 INDEX_DIR = BASE_DIR / 'index/templates/index'
-STATICFILES_DIR = [BASE_DIR/'static']
+STATIC_DIR = BASE_DIR / 'static'
+
 
 
 
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'index',
     'recommendation',
+    'bulma',
 ]
 
 MIDDLEWARE = [
@@ -133,5 +135,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIR = [STATIC_DIR,]
 LOGIN_REDIRECT_URL = "/login/"
 LOGOUT_REDIRECT_URL = ""

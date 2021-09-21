@@ -13,10 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from cv.recommendation.views import RecoListView
+
 from django.contrib import admin
 from django.urls import path
-from recommendation import views
+from . import views
 
 urlpatterns = [
     path("", views.ValidRecoListView.as_view(), name="validreco_list"),
