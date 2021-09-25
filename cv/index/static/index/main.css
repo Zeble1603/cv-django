@@ -1,0 +1,29 @@
+body{
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+
+#main_navbar{
+    background-color: #0077b6;
+}
+
+.navbar-start{
+    flex-grow: 1;
+    justify-content: center;
+}
+
+#main-hero{
+    background-color: #0096c7;
+}
+
+#hero-elt{
+    text-align: center;
+}
+
+#picture{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+}

@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'index',
     'recommendation',
-    'bulma',
 ]
 
 MIDDLEWARE = [
@@ -135,6 +134,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIR = [STATIC_DIR,]
+STATICFILES_DIR = []
 LOGIN_REDIRECT_URL = "/login/"
 LOGOUT_REDIRECT_URL = ""

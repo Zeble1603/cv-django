@@ -1,5 +1,51 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block body_block %}
-    <h1 class="title is-1">INDEX</h1>
+<section class="hero is-medium is-info " id="main-hero">
+    <div class="hero-body">
+        <div id="hero-elt">
+            <h1 class="title is-2" style="font-weight: 300;">
+                Blaise De Carvalho
+            </h1>
+            <figure class="image is-128x128" id="picture">
+                <img class="is-rounded" src="{% static 'index\1534257017802.jpg' %}">
+            </figure>
+            <h2 class="subtitle is-4" style="font-weight: 300;">
+                Junior Python Developer
+            </h2>
+            <span id="button">
+                <a class="button has-text-white-bis" id="bouton" style="background-color: #0077b6">
+                    <i class="material-icons">
+                    file_download
+                    </i>
+                    Download my curriculum
+                </a>
+            </span>
+        </div>               
+    </div>
+</section>
+<section>
+    <content class="container">
+        <div class="notification">
+            <div class = "columns is-centered">
+                <div class = "column is-three-quarters">
+                    <h1 class="title has-text-centered">About me</h1>
+                    <p class="has-text-justified">{% lorem 1 b random %}</p>
+                </div>   
+            </div>
+        </div>
+    </content>
+    <content class="container test">
+        <div class="notification">
+            <div class = "columns is-centered">
+                <div class = "column is-three-quarters">
+                    <h1 class="title has-text-centered">Skills</h1>
+                    <p class="has-text-justified">{% lorem 1 b random %}</p>         
+                </div>   
+            </div>
+        </div>
+    </content>         
+</section>          
+
 
 {% endblock body_block %}    
