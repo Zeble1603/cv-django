@@ -27,3 +27,11 @@ body{
     margin-right: auto;
     margin-bottom: 2%;
 }
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*=".column.box-colums"] {
+      background-color: black;
+    }
+}
