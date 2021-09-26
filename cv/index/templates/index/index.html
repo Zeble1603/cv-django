@@ -4,14 +4,17 @@
 <section class="hero is-medium is-info " id="main-hero">
     <div class="hero-body">
         <div id="hero-elt">
-            <h1 class="title is-2" style="font-weight: 300;">
+            <h1 class="title is-1" style="font-weight: 300;">
                 Blaise De Carvalho
             </h1>
             <figure class="image is-128x128" id="picture">
                 <img class="is-rounded" src="{% static 'index\1534257017802.jpg' %}">
             </figure>
-            <h2 class="subtitle is-4" style="font-weight: 300;">
-                Junior Python Developer
+            <h2 class="subtitle is-3" style="font-weight: 300;">
+                Junior Developer
+            </h2>
+            <h2 class="subtitle is-5" style="font-weight: 300;">
+                Python / Django / HTML5 / CSS3 / SQL
             </h2>
             <span id="button">
                 <a class="button has-text-white-bis" id="bouton" style="background-color: #0077b6">
@@ -30,22 +33,58 @@
             <div class = "columns is-centered">
                 <div class = "column is-three-quarters">
                     <h1 class="title has-text-centered">About me</h1>
-                    <p class="has-text-justified">{% lorem 1 b random %}</p>
+                    <p class="has-text-justified">After working for almost 7 years in the
+                        tourism industry, mainly in sales, I decided to
+                        start a professional retraining. My objective is
+                        to join a team as a Junior Web Developer
+                        where I can gain a consistent work
+                        experience. Throughout my trainings and the
+                        projects I achieved, I acquired knowledge in
+                        Python3, Django, HTML5, CSS3 and some
+                        experience in relational databases (MySQL,
+                        Oracle).
+                    </p>
                 </div>   
             </div>
         </div>
     </content>
-    <content class="container test">
+    <content class="container">
         <div class="notification">
             <div class = "columns is-centered">
                 <div class = "column is-three-quarters">
                     <h1 class="title has-text-centered">Skills</h1>
-                    <p class="has-text-justified">{% lorem 1 b random %}</p>         
+                    <div class = "columns is-mobile is-centered"> 
+                        <div class = "column" style="display: flex;justify-content: center;
+                        align-items: center;">
+                            <figure class="image is-128x128">
+                                <img src="{% static 'index\Python.png' %}">
+                            </figure>
+                        </div>    
+                        <div class = "column" style="padding-top:60px;display: flex;justify-content: center;
+                        align-items: center;">
+                            <figure class="image is-128x128">
+                                <img src="{% static 'index\django.png' %}">
+                            </figure>
+                        </div>
+                        <div class = "column" style="padding-top:50px;display: flex;justify-content: center;
+                        align-items: center;">
+                            <figure class="image is-128x128">
+                                <img src="{% static 'index\html-css.png' %}">
+                            </figure>
+                        </div>
+                        <div class = "column" style="padding-top:70px;display: flex;justify-content: center;
+                        align-items: center;">
+                            <figure class="image is-128x128">
+                                <img src="{% static 'index\sqlite.png' %}">
+                            </figure>
+                        </div>
+                    </div>
                 </div>   
             </div>
         </div>
     </content>         
-</section>          
+</section> 
+     
 
 
 {% endblock body_block %}    
