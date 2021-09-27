@@ -14,7 +14,5 @@ class EducationView(TemplateView):
 class ProtfolioView(TemplateView):
     template_name = "portfolio.html" 
 
-class HobbiesView(TemplateView):
-    template_name = "hobbies.html"     
 
 
