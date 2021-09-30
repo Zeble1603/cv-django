@@ -3,7 +3,6 @@ body{
     font-weight: 300;
 }
 
-
 #main_navbar{
     background-color: #0077b6;
 }
@@ -28,10 +27,6 @@ body{
     margin-bottom: 2%;
 }
 
-
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    [class*=".column.box-colums"] {
-      background-color: black;
-    }
+.git-button{
+    margin: 10px;
 }

@@ -1,5 +1,69 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block body_block %}
-    <h1 class="title is-1">portfolio</h1>
+<section class="hero is-small is-info " id="main-hero">
+    <div class="hero-body">
+        <div id="hero-elt">
+            <h1 class="title is-3" style="font-weight: 300;">
+                My projects
+            </h1>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="columns" style = "margin-top:10px; margin-bottom:20px;">
+        <div class="column has-text-centered is-6">
+            <h1 class = "subtitle is-4">
+                Ortholist
+            </h1>
+            <p>Stack : Django / HTML5 / CSS3 / BULMA / SQL </p>
+            <a class="button mt-3">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>GitHub</span>
+            </a>
+        </div>
+        <div class="column has-text-centered is-6">
+            <h1 class = "subtitle is-4">
+                Beautiful Weather
+            </h1>
+            <p>Stack : Django / HTML5 / CSS3 / BULMA / SQL </p>
+            <a class="button mt-3">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>GitHub</span>
+            </a>
+        </div>
+    </div>    
+    <div class="columns" style = "margin-top:10px; margin-bottom:20px;">
+        <div class="column has-text-centered is-6">
+            <h1 class = "subtitle is-4">
+                Blog
+            </h1>
+            <p>Stack : Django / HTML5 / CSS3 / BULMA / SQL </p>
+            <a class="button mt-3">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>GitHub</span>
+            </a>
+        </div>
+        <div class="column has-text-centered is-6">
+            <h1 class = "subtitle is-4">
+                To do List
+            </h1>
+            <p>Stack : Django / HTML5 / CSS3 / BULMA / SQL </p>
+            <a class="button mt-3">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>GitHub</span>
+            </a>
+        </div>
+    </div>    
+</section>
 
 {% endblock body_block %} 
