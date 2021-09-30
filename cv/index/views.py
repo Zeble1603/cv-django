@@ -1,5 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.urls.base import reverse_lazy
+from .models import Message
+from .forms import MessageForm
+from django.views.generic import TemplateView,CreateView
+
 # Create your views here.
 
 class IndexView(TemplateView):
@@ -14,5 +18,11 @@ class EducationView(TemplateView):
 class ProtfolioView(TemplateView):
     template_name = "portfolio.html" 
 
+class MessageCreateView(CreateView):
+    model = Message
+    form_class = MessageForm
+    template_name = "contact.html"
+    success_url = reverse_lazy("index:thanks_message")
 
-
+class ThanksMessageView(TemplateView):
+    template_name = "thanks_message.html"

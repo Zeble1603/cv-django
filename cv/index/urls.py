@@ -26,4 +26,8 @@ urlpatterns = [
     path('work/', views.WorkView.as_view(), name='work'),
     path('education/', views.EducationView.as_view(), name='education'),
     path('portfolio/', views.ProtfolioView.as_view(), name='portfolio'),
+    path('contact/', views.MessageCreateView.as_view(), name='contact'),
+    path('thanks/', views.ThanksMessageView.as_view(), name='thanks_message'),
+
+
 ]

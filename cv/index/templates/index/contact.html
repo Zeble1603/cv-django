@@ -6,8 +6,11 @@
     <div class="hero-body">
         <div id="hero-elt">
             <h1 class="title is-3" style="font-weight: 300;">
-                Let the people know how nice I am
+                Contact
             </h1>
+            <h2 class="subtile is-3" style="font-weight: 300;">
+                Send me a message
+            </h2>
         </div>
     </div>
 </section>
@@ -19,7 +22,7 @@
                 {% csrf_token %}
                 {{form|bulma}}
                 <div class="field has-text-centered">
-                    <input type="submit" class="button has-text-white-bis" value="Submit" style="background-color: #0077b6"></input>
+                    <input type="submit" class="button has-text-white-bis" value="Send" style="background-color: #0077b6"></input>
                 </div>
                 <input type="hidden" name="next" value="{{ next }}"/>
             </form>

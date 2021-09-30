@@ -6,22 +6,25 @@
     <div class="container">
         <!-- Start Carousel -->
         <div id="carousel-demo" class="carousel">
-            <div class="item-1">
-                <h1 class ="title has-text-centered">HELLO WORLD</h1>
-            </div>
-            <div class="item-2">
-                <img class ="title has-text-centered">CECI EST UN TEST...</h1>
-            </div>
-            <div class="item-3">
-                <h1 class ="title has-text-centered">...</h1>
-            </div>
-            <div class="item-4">
-                <h1 class ="title has-text-centered">THE PROPHECY IS TRUE</h1>
-            </div>
-        </div>
+            {% for reco in recommendation_list  %}
+                <div class="item">
+                    <p class ="has-text-centered">{{reco.comment}}</p>
+                    <p class ="has-text-centered">{{reco}}</p>
+                    <p class ="has-text-centered">{{reco.job}}</p>
+                    <p class ="has-text-centered">{{reco.relationship}}</p>
+                </div>
+            {% endfor %}
         <!-- End Carousel -->
     </div>
 </section>
+<section class="section has-text-centered">
+    <span id="button">
+        <a href = "{% url 'reco:reco_create' %}" class="button has-text-white-bis" style="background-color: #0077b6">
+            Leave a recommendation ! 
+        </a>
+    </span>
+</section>    
+
 
 <script>
     bulmaCarousel.attach('#carousel-demo', {

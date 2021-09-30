@@ -12,7 +12,11 @@ from django.contrib.auth.decorators import login_required
 class RecoCreateView(CreateView):
     model = Recommendation
     template_name = "reco_create.html"
+    success_url = reverse_lazy('reco:thanks')
     form_class = RecommendationForm
+
+class ThanksTemplateView(TemplateView):
+    template_name = "thanks.html"
 
 
 class ValidRecoListView(ListView):
