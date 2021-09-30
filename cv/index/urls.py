@@ -28,6 +28,7 @@ urlpatterns = [
     path('portfolio/', views.ProtfolioView.as_view(), name='portfolio'),
     path('contact/', views.MessageCreateView.as_view(), name='contact'),
     path('thanks/', views.ThanksMessageView.as_view(), name='thanks_message'),
+    path('<str:filepath>/', views.download_cv, name='download'),
 
 
 ]
