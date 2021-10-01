@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load bulma_tags %}
+{% block body_block %}
+<section class="hero is-small is-info" id="main_hero">
+    <div class="hero-body">
+      <p class="title">
+        Se connecter 
+      </p>
+      <p class="subtitle">
+    
+      </p>
+    </div>
+</section>
+<section id="login_box">
+<div class="container is-fluid has-text-centered columns is-mobile is-centered">
+    <div class="column is-full-mobile is-two-thirds-tablet is-half-desktop is-4-widescreen">
+        <div class= 'box'>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form|bulma}}
+                <div class="field">
+                    <button type="submit" class="button is-info is-medium is-fullwidth">Connexion</button>
+                </div>
+                <input type="hidden" name="next" value="{{ next }}"/>
+            </form>
+        </div>
+    </div>
+</div>
+</section>   
+
+
+{% endblock body_block %}
+
+
+

@@ -18,6 +18,7 @@ TEMPLATE_DIR = BASE_DIR / 'templates'
 RECOMMENDATION_DIR = BASE_DIR / 'recommendation/templates/recommendation'
 INDEX_DIR = BASE_DIR / 'index/templates/index'
 STATIC_DIR = BASE_DIR / 'static'
+ACCOUNT_DIR = BASE_DIR / 'account/templates/account'
 
 
 
@@ -63,7 +64,7 @@ ROOT_URLCONF = 'cv.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,INDEX_DIR,RECOMMENDATION_DIR],
+        'DIRS': [TEMPLATE_DIR,INDEX_DIR,RECOMMENDATION_DIR,ACCOUNT_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -136,5 +137,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIR = []
-LOGIN_REDIRECT_URL = "/login/"
+LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = ""
