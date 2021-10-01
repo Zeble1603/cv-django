@@ -28,51 +28,68 @@
                     <span aria-hidden="true"></span>
                 </a>
             </div>
-            <div id="my-navbar" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item" href="{% url 'index:home' %}">
-                        Home
-                    </a>
-            
-                    <a class="navbar-item" href="{% url 'index:work' %}">
-                        Work experience
-                    </a>
-
-                    <a class="navbar-item" href="{% url 'index:education' %}">
-                        Education
-                    </a>
-
-                    <a class="navbar-item" href="{% url 'reco:validreco_list' %}">
-                        Recommendations
-                    </a>
-            
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link" href="{% url 'index:portfolio' %}">
-                            Portfolio
+            {% if user.is_authenticated %}
+                <div id="my-navbar" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="{% url 'index:home' %}">
+                            Home
                         </a>
-            
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="{% url 'index:portfolio' %}">
-                            All projects
+                        <a class="navbar-item" href="{% url 'index:home' %}">
+                            My messages
                         </a>
-                        <a class="navbar-item">
-                            OrthoList 
-                        </a>
-                        <a class="navbar-item">
-                            Beautiful Weather
-                        </a>
-                        <a class="navbar-item">
-                            To do List  
-                        </a> 
-                        <a class="navbar-item">
-                            Blog 
+                        <a class="navbar-item" href="">
+                            My recommendations
                         </a>
                     </div>
+                    <div class="navbar-end">
+                        <a style="margin:auto;" class = "button is-info" href="{% url 'logout' %}">Log out</a>
+                    </div>
                 </div>
-            </div>
+            {% else %}
+                <div id="my-navbar" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="{% url 'index:home' %}">
+                            Home
+                        </a>
+                
+                        <a class="navbar-item" href="{% url 'index:work' %}">
+                            Work experience
+                        </a>
+
+                        <a class="navbar-item" href="{% url 'index:education' %}">
+                            Education
+                        </a>
+
+                        <a class="navbar-item" href="{% url 'reco:validreco_list' %}">
+                            Recommendations
+                        </a>
+                
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link" href="{% url 'index:portfolio' %}">
+                                Portfolio
+                            </a>
+                
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="{% url 'index:portfolio' %}">
+                                All projects
+                            </a>
+                            <a class="navbar-item">
+                                OrthoList 
+                            </a>
+                            <a class="navbar-item">
+                                Beautiful Weather
+                            </a>
+                            <a class="navbar-item">
+                                To do List  
+                            </a> 
+                            <a class="navbar-item">
+                                Blog 
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
-
-
     </nav>
     {% block body_block %}
 
