@@ -28,6 +28,8 @@ urlpatterns = [
     path('contact/', views.MessageCreateView.as_view(), name='contact'),
     path('thanks/', views.ThanksMessageView.as_view(), name='thanks_message'),
     path('dl/<str:filepath>/', views.download_cv),
-
+    path('my_messages',views.MessagesListView.as_view(),name="my_messages"),
+    path('my_messages/<pk>/read',views.message_read,name="message_read"),
+    path('my_messages/<pk>/delete',views.MessageDelete.as_view(),name="message_delete"),
 
 ]

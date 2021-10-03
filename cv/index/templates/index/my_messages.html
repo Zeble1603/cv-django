@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<section class="hero is-small is-info " id="main-hero">
+    <div class="hero-body">
+        <div id="hero-elt">
+            <h1 class="title is-3" style="font-weight: 300;">
+                {% if count_unread > 0 %}
+                You have {{count_unread}} new message(s)
+                {% else %}
+                You have {{count_read}} message(s)
+                {% endif %}
+            </h1>
+        </div>
+    </div>
+</section>
+
+<section>
+{% for message in message_list %} 
+    <div class="columns is-desktop" style="margin:20px">
+        <div class="column">
+            {% if message.read == True %}
+            <div class="box" style="padding-bottom:48px">
+            {% else %}
+            <div class="box" style="padding-bottom:48px;background-color:#90e0ef">
+            {% endif %}
+                <div class ="content">
+                    <h3 class="subtitle is-5">From {{message.mail}}</h3>
+                    <p>{{message.text}}</p>
+                    {% if message.read == False %}
+                    <a class="button is-info" href = "{% url 'index:message_read' pk=message.pk %}">Mark as read</a>
+                    {% endif %}
+                    <a class="button is-danger" href = "{% url 'index:message_delete' pk=message.pk %}">Delete message</a>
+                </div>
+            </div>  
+        </div>
+    </div>  
+{% endfor %}         
+</section>
+{% endblock body_block %}
+
+

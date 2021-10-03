@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404,redirect
 from django.urls.base import reverse_lazy
 from .models import Message
 from .forms import MessageForm
-from django.views.generic import TemplateView,CreateView
+from django.views.generic import TemplateView,CreateView,ListView,DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 import mimetypes
 from django.http import HttpResponse
 
@@ -38,4 +39,28 @@ def download_cv(request):
         response = HttpResponse(cv, headers={
         'Content-Type': mime_type,
         'Content-Disposition': 'attachment; filename="{}"'.format(cv_name),})
-    
+
+class MessagesListView(LoginRequiredMixin,ListView):
+    model = Message
+    template_name = "my_messages.html"
+
+    def get_queryset(self):
+        return Message.objects.all().order_by('read')
+
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in the counts of read messages
+        context['count_read'] = Message.objects.filter(read = 'True').count()
+        context['count_unread'] = Message.objects.filter(read = 'False').count()
+        return context
+
+def message_read(request,pk):
+    message = get_object_or_404(Message,pk=pk)
+    message.is_read()
+    return redirect('index:my_messages')        
+        
+class MessageDelete(DeleteView,LoginRequiredMixin):
+    model = Message
+    success_url = reverse_lazy('index:my_messages')
