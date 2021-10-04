@@ -3,11 +3,11 @@ from django.urls import reverse
 from django.utils import timezone
 # Create your models here.
 CHOICES = [
-    ('we work together in the same team or on the same project','We work together in the same team or on the same project'), 
-    ('blaise was under my responsability','Blaise was under my responsability'),
-    ('we work together inderectly','We work together inderectly'),
-    ("i was his customer","I was his customer"),
-    ("i heard about his skills","I heard about his skills"),
+    ('We work together in the same team or on the same project','We work together in the same team or on the same project'), 
+    ('Blaise was under my responsability','Blaise was under my responsability'),
+    ('We work together inderectly','We work together inderectly'),
+    ("I was his customer","I was his customer"),
+    ("I heard about his skills","I heard about his skills"),
 ]
 
 class Recommendation(models.Model):

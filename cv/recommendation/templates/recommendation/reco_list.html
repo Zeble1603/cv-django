@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body_block %}
+
+<section class="hero is-small is-info " id="main-hero">
+    <div class="hero-body">
+        <div id="hero-elt">
+            <h1 class="title is-3" style="font-weight: 300;">
+                Recommendations to be approved
+            </h1>
+        </div>
+    </div>
+</section>
+
 <section>
 {% for reco in recommendation_list %} 
     <div class="columns is-desktop" style="margin:20px">
