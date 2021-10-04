@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404,redirect
+from django.shortcuts import get_object_or_404,redirect
 from django.urls.base import reverse_lazy
 from .models import Message
 from .forms import MessageForm
@@ -47,11 +47,10 @@ class MessagesListView(LoginRequiredMixin,ListView):
     def get_queryset(self):
         return Message.objects.all().order_by('read')
 
-
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
-        # Add in the counts of read messages
+        # Add in the counts of read and unread messages
         context['count_read'] = Message.objects.filter(read = 'True').count()
         context['count_unread'] = Message.objects.filter(read = 'False').count()
         return context

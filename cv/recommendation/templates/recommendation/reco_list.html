@@ -5,9 +5,15 @@
 <section class="hero is-small is-info " id="main-hero">
     <div class="hero-body">
         <div id="hero-elt">
+            {% if unpublished_reco > 0 %}
             <h1 class="title is-3" style="font-weight: 300;">
-                Recommendations to be approved
+                Recommendation(s) to be approved
             </h1>
+            {% else %}
+            <h1 class="title is-3" style="font-weight: 300;">
+                You have no recommendation to be approved
+            </h1>
+            {% endif %}
         </div>
     </div>
 </section>

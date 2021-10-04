@@ -46,14 +46,21 @@ class RecoListView(LoginRequiredMixin,ListView):
     def get_queryset(self):
         return super().get_queryset().filter(publish_date__isnull=True).order_by('-create_date')
 
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)  
+        # Add in the counts of read messages
+        context['unpublished_reco'] = Recommendation.objects.filter(publish_date__isnull = True).count()
+        return context 
+          
+
 class RecoDeleteView(LoginRequiredMixin,DeleteView):
     model = Recommendation
-    template_name = "reco_delete.html"
-    success_url = reverse_lazy('reco_list')
+    success_url = reverse_lazy('reco:reco_list')
 
 @login_required
 def reco_publish(request,pk):
     reco = get_object_or_404(Recommendation,pk=pk)
     reco.publish()
-    return redirect('reco_detail',pk=pk)
+    return redirect('reco:reco_list')
 
