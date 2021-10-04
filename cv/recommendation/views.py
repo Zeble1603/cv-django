@@ -35,8 +35,9 @@ class RecoUpdateView(LoginRequiredMixin,UpdateView):
     model = Recommendation
     form_class = RecommendationForm
     template_name = "reco_update.html"
-    redirect_field_name = 'recommendation/reco_list.html'
-    #if doesn't work, check login settings
+    redirect_field_name = "reco/reco_detail.html"
+
+    
 
 class RecoListView(LoginRequiredMixin,ListView):
     model = Recommendation

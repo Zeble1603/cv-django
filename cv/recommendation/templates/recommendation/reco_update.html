@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load bulma_tags %}
+{% block body_block %}
+<section class="hero is-small is-info " id="main-hero">
+    <div class="hero-body">
+        <div id="hero-elt">
+            <h1 class="title is-3" style="font-weight: 300;">
+                Modify a recommendation
+            </h1>
+        </div>
+    </div>
+</section>
+
+<div class='container is-fluid'>
+    <div class="columns is-mobile is-centered py-5">
+        <div class="column is-full-mobile is-two-thirds-tablet is-half-desktop">
+            <form class="form" action="" method="POST">
+                {% csrf_token %}
+                {{form|bulma}}
+                <div class="field has-text-centered">
+                    <input type="submit" class="button has-text-white-bis" value="Submit" style="background-color: #0077b6"></input>
+                </div>
+                <input type="hidden" name="next" value="{{ next }}"/>
+            </form>
+        </div>
+    </div>    
+</div>
+
+
+
+
+
+{% endblock body_block %}
+
+
+
+
+
+

@@ -25,5 +25,9 @@ class Recommendation(models.Model):
 
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)
+
+    def get_absolute_url(self):
+        return reverse("reco:reco_detail", kwargs={"pk": self.pk})
+        
         
     
