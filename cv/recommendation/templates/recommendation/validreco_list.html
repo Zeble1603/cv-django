@@ -7,7 +7,7 @@
         <!-- Start Carousel -->
         <div id="carousel-demo" class="carousel">
             {% for reco in recommendation_list  %}
-                <div class="item">
+                <div class="item" style = "padding-bottom: 30px">
                     <p class ="has-text-centered">{{reco.comment}}</p>
                     <p class ="has-text-centered">{{reco}}</p>
                     <p class ="has-text-centered">{{reco.job}}</p>
@@ -17,6 +17,7 @@
         <!-- End Carousel -->
     </div>
 </section>
+
 <section class="section has-text-centered">
     <span id="button">
         <a href = "{% url 'reco:reco_create' %}" class="button has-text-white-bis" style="background-color: #0077b6">

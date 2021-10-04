@@ -52,7 +52,7 @@ class RecoDeleteView(LoginRequiredMixin,DeleteView):
 
 @login_required
 def reco_publish(request,pk):
-    reco = get_object_or_404(Recommendation,pk)
+    reco = get_object_or_404(Recommendation,pk=pk)
     reco.publish()
     return redirect('reco_detail',pk=pk)
 

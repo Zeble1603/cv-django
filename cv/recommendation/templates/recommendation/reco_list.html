@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body_block %}
-    <h1 class="titre">RECO LIST</h1>
+<section>
+{% for reco in recommendation_list %} 
+    <div class="columns is-desktop" style="margin:20px">
+        <div class="column">
+            <div class="box" style="padding-bottom:48px">
+                <div class ="content">
+                    <a class="subtitle is-5" href="{% url 'reco:reco_detail' pk=reco.pk %}">From {{reco.first_name}} {{reco.last_name}}</a>
+                    <h3 class="subtitle is-5">{{reco.job}}</h3>
+                    <p>{{reco.relationship}}<br>{{reco.create_date|date:"D M Y"}}</p>
+                    <a class="button is-primary" href = "{% url 'reco:reco_publish' pk=reco.pk %}">Approve</a>
+                    <a class="button is-danger" href = "{% url 'reco:reco_delete' pk=reco.pk %}">Delete</a>
+                </div>
+            </div>  
+        </div>
+    </div>  
+{% endfor %}         
+</section>
 {% endblock body_block %} 
 
