@@ -19,7 +19,19 @@ class EducationView(TemplateView):
     template_name = "education.html"  
 
 class ProtfolioView(TemplateView):
-    template_name = "portfolio.html" 
+    template_name = "portfolio.html"
+
+class OrthoView(TemplateView):
+    template_name = "ortho.html"
+
+class WeatherView(TemplateView):
+    template_name = "weather.html"
+
+class TodoView(TemplateView):
+    template_name = "todo.html"
+
+class SudokuView(TemplateView):
+    template_name = "sudoku.html"
 
 class MessageCreateView(CreateView):
     model = Message
