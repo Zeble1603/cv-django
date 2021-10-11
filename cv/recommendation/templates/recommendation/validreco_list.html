@@ -2,13 +2,13 @@
 {% load static %}
 {% block body_block %}
 
-<section class="section">
-    <div class="container">
+<section class="section" style="background-color:#0096c7;">
+    <div class="container" >
         <!-- Start Carousel -->
         <div id="carousel-demo" class="carousel">
             {% for reco in recommendation_list  %}
-                <div class="item" style = "padding-bottom: 30px">
-                    <p class ="has-text-centered">{{reco.comment}}</p>
+                <div class="item" style = "padding: 30px; color:white; padding-left:60px;padding-right:60px">
+                    <p class ="has-text-centered" style="padding-bottom:10px; font-style:italic;">{{reco.comment}}</p>
                     <p class ="has-text-centered">{{reco}}</p>
                     <p class ="has-text-centered">{{reco.job}}</p>
                     <p class ="has-text-centered">{{reco.relationship}}</p>

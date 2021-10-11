@@ -22,6 +22,7 @@ from django.contrib.auth import views as auth_views
 from account.forms import CustomLoginForm
 
 urlpatterns = [
-    path('',auth_views.LoginView.as_view(authentication_form=CustomLoginForm,template_name="login.html"), name = "login"),
+    path('',auth_views.LoginView.as_view(
+        authentication_form = CustomLoginForm, template_name = "login.html"), name = "login"),
 
 ]

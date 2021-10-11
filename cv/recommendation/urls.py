@@ -21,13 +21,13 @@ from . import views
 app_name = "reco"
 
 urlpatterns = [
-    path("", views.ValidRecoListView.as_view(), name="validreco_list"),
-    path("list", views.RecoListView.as_view(), name="reco_list"),
-    path("new", views.RecoCreateView.as_view(), name="reco_create"),
-    path("thanks", views.ThanksTemplateView.as_view(), name="thanks"),
-    path("<pk>", views.RecoDetailView.as_view(), name="reco_detail"),
-    path("<pk>/update", views.RecoUpdateView.as_view(), name="reco_update"),
-    path("<pk>/delete", views.RecoDeleteView.as_view(), name="reco_delete"),
-    path("<pk>/publish", views.reco_publish, name="reco_publish"),
+    path("", views.ValidRecoListView.as_view(), name = "validreco_list"),
+    path("list", views.RecoListView.as_view(), name = "reco_list"),
+    path("new", views.RecoCreateView.as_view(), name = "reco_create"),
+    path("thanks", views.ThanksTemplateView.as_view(), name = "thanks"),
+    path("<pk>", views.RecoDetailView.as_view(), name = "reco_detail"),
+    path("<pk>/update", views.RecoUpdateView.as_view(), name = "reco_update"),
+    path("<pk>/delete", views.RecoDeleteView.as_view(), name = "reco_delete"),
+    path("<pk>/publish", views.reco_publish, name = "reco_publish"),
 
 ]

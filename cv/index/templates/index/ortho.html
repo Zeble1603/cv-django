@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<section class="hero is-small is-info " id="main-hero">
+    <div class="hero-body">
+        <div id="hero-elt">
+            <h1 class="title is-3" style="font-weight: 300;">
+                Ortholist
+            </h1>
+            <h2 class="subtitle is-5" style="font-weight: 300;">
+                Used in this project :  Python / Django / HTML5 / CSS3 / SQL
+            </h2>
+        </div>
+    </div>
+</section>
+<section>
+    <content class="container">
+        <div class="notification">
+            <div class = "columns is-centered">
+                <div class = "column is-three-quarters">
+                    <h1 class="title has-text-centered">Why?</h1>
+                    <p class="has-text-justified">My mother works as a Speech Therapist. One day, 
+                    she explained to me that in France, we are sorely lacking in representatives of
+                    this profession. She then showed me her waiting list : a 15cm thick file where she
+                    preciously keep all the patients details she should contact if a place becomes available 
+                    in her agenda. 
+                    In order to make her life easier, I first advised her to use an excel file to compile 
+                    all this information, but it wouldn’t solve the patient's problem : they would keep on 
+                    calling to ask for appointments. 
+                    That’s why I decided to create this platform. 
+                    It allows the patient to raise requests for appointments and my mother to select, 
+                    order and manage all the requests saved in the database.
+                    </p>
+                </div>   
+            </div>
+            <div class = "columns is-centered">
+                <div class = "column is-three-quarters">
+                    <h1 class="title has-text-centered">How?</h1>
+                    <p class="has-text-justified">I used Django to build the backend of this website. 
+                    The idea was to create two main apps inside the project : one for the patient who 
+                    could create their demand, and the other for the speech therapist, who could access
+                    a table of all the raised demands. It’s a basic system that uses the main functionalities 
+                    of Django (Class Based views, context data, queryset…) and it was a very good exercise to 
+                    put into practice what I’ve learned so far. I also learnt how to use the django-filters library 
+                    to allow the Speech Therapist to sort and filter the table of data. I mainly used bulma.io as a 
+                    CSS library.
+                    </p>
+                </div>   
+            </div>
+            <div class = "columns is-centered">
+                <div class = "column is-three-quarters">
+                    <h1 class="title has-text-centered">What could be improved ?</h1>
+                    <p class="has-text-justified">
+                    I am currently thinking about implementing a tool that
+                    would automatically send an email to the user when they
+                    raised their appointment request. 
+                    </p>
+                </div>   
+            </div>
+        </div>
+    </content>
+</section>
+{% endblock body_block %}
+
+
+

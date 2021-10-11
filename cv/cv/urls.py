@@ -20,9 +20,9 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-    path('',include('index.urls',namespace='index')),
-    path("reco/", include('recommendation.urls',namespace='reco')),
+    path('',include('index.urls', namespace='index')),
+    path("reco/", include('recommendation.urls', namespace='reco')),
     path('admin/', admin.site.urls),
-    path("login/", include('account.urls',namespace='account')),
+    path("login/", include('account.urls', namespace='account')),
     path("logout/", auth_views.LogoutView.as_view(), name = "logout", kwargs={'next_page': '/'}),
 ]

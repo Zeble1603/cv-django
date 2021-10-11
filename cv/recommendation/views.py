@@ -1,5 +1,5 @@
-from django.shortcuts import get_object_or_404, redirect, render
-from django.urls.base import reverse, reverse_lazy
+from django.shortcuts import get_object_or_404, redirect
+from django.urls.base import reverse_lazy
 from django.utils import timezone
 from .models import Recommendation
 from .forms import RecommendationForm
@@ -7,7 +7,39 @@ from django.views.generic import TemplateView, CreateView, UpdateView, DeleteVie
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+# Template views: 
+
+class ThanksTemplateView(TemplateView):
+    template_name = "thanks.html"
+
+
+# List views:
+
+class ValidRecoListView(ListView):
+    model = Recommendation
+    template_name = "validreco_list.html"
+
+    def get_queryset(self):
+        return super().get_queryset().filter(
+            publish_date__lte=timezone.now()).order_by("-publish_date")
+
+
+class RecoListView(LoginRequiredMixin,ListView):
+    model = Recommendation
+    template_name = "reco_list.html"
+
+    def get_queryset(self):
+        return super().get_queryset().filter(
+            publish_date__isnull=True).order_by('-create_date')
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)  
+        # Add in the counts of read messages
+        context['unpublished_reco'] = Recommendation.objects.filter(publish_date__isnull = True).count()
+        return context 
+
+# CRUD views : 
 
 class RecoCreateView(CreateView):
     model = Recommendation
@@ -15,16 +47,6 @@ class RecoCreateView(CreateView):
     success_url = reverse_lazy('reco:thanks')
     form_class = RecommendationForm
 
-class ThanksTemplateView(TemplateView):
-    template_name = "thanks.html"
-
-
-class ValidRecoListView(ListView):
-    model = Recommendation
-    template_name = "validreco_list.html"
-
-    def get_queryset(self):
-        return super().get_queryset().filter(publish_date__lte=timezone.now()).order_by("-publish_date")
 
 class RecoDetailView(LoginRequiredMixin,DetailView):
     model = Recommendation
@@ -37,26 +59,13 @@ class RecoUpdateView(LoginRequiredMixin,UpdateView):
     template_name = "reco_update.html"
     redirect_field_name = "reco/reco_detail.html"
 
-    
-
-class RecoListView(LoginRequiredMixin,ListView):
-    model = Recommendation
-    template_name = "reco_list.html"
-
-    def get_queryset(self):
-        return super().get_queryset().filter(publish_date__isnull=True).order_by('-create_date')
-
-    def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
-        context = super().get_context_data(**kwargs)  
-        # Add in the counts of read messages
-        context['unpublished_reco'] = Recommendation.objects.filter(publish_date__isnull = True).count()
-        return context 
-          
 
 class RecoDeleteView(LoginRequiredMixin,DeleteView):
     model = Recommendation
     success_url = reverse_lazy('reco:reco_list')
+
+
+# Function based views :
 
 @login_required
 def reco_publish(request,pk):

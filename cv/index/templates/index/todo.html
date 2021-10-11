@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<section class="hero is-small is-info " id="main-hero">
+    <div class="hero-body">
+        <div id="hero-elt">
+            <h1 class="title is-3" style="font-weight: 300;">
+                To do List
+            </h1>
+            <h2 class="subtitle is-5" style="font-weight: 300;">
+                Used in this project :  Python / Django / HTML5 / CSS3 / PostgreSQL 
+            </h2>
+        </div>
+    </div>
+</section>
+<section>
+    <content class="container">
+        <div class="notification">
+            <div class = "columns is-centered">
+                <div class = "column is-three-quarters">
+                    <h1 class="title has-text-centered">Why?</h1>
+                    <p class="has-text-justified">This is the first project I built on my own 
+                    after the Django bootcamp. I wanted to put into practice everything I 
+                    learned in a simple project, without following any guideline. 
+                    </p>
+                </div>   
+            </div>
+            <div class = "columns is-centered">
+                <div class = "column is-three-quarters">
+                    <h1 class="title has-text-centered">How?</h1>
+                    <p class="has-text-justified">
+                    I mainly used Class Based views to build this Django project. 
+                    I used Foreign keys in my models to link the tasks to the user. 
+                    Combined with the proper template tags, it allows the website to display 
+                    personal content for each user. 
+                    </p>
+                </div>   
+            </div>
+        </div>
+    </content>
+</section>
+{% endblock body_block %}

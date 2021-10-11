@@ -6,7 +6,7 @@ class RecommendationForm(forms.ModelForm):
     
     class Meta:
         model = Recommendation
-        fields = ("first_name","last_name","job","relationship",
-        "comment")
+        fields = ("first_name","last_name",
+                  "job","relationship","comment")
 
   

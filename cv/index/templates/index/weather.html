@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<section class="hero is-small is-info " id="main-hero">
+    <div class="hero-body">
+        <div id="hero-elt">
+            <h1 class="title is-3" style="font-weight: 300;">
+                Beautiful Weather
+            </h1>
+            <h2 class="subtitle is-5" style="font-weight: 300;">
+                Used in this project :  Python / Django / HTML5 / CSS3 / PostgreSQL / API calls / JSON
+            </h2>
+        </div>
+    </div>
+</section>
+<section>
+    <content class="container">
+        <div class="notification">
+            <div class = "columns is-centered">
+                <div class = "column is-three-quarters">
+                    <h1 class="title has-text-centered">Why?</h1>
+                    <p class="has-text-justified">I started this project once I finished
+                    the function based view section of the Django bootcamp I was following. 
+                    The main goal was to get some experience and knowledge on how to use API : 
+                    How does it work ? How can I manipulate them ? I read some articles to get some project ideas. 
+                    I chose to work on a website that allows the user to get the weather report of a bunch of cities 
+                    he could select, like on the Iphone for example.
+                    </p>
+                </div>   
+            </div>
+            <div class = "columns is-centered">
+                <div class = "column is-three-quarters">
+                    <h1 class="title has-text-centered">How?</h1>
+                    <p class="has-text-justified">This website is mainly constructed around a single function based view. 
+                    The idea was first to store the url of the api as a variable. A form is here to feed our database of objects, 
+                    in that case, they are cities. We then loop over all the objects we have and use their name to fill the api
+                    url with the python function format. We get a JSON object that we would store in a dictionary with all the
+                    datas we need (temperature, description and an icon representing the current weather). We then store the 
+                    dictionary of each city in a list that we will use for the context of the view.  
+                    </p>
+                </div>   
+            </div>
+        </div>
+    </content>
+</section>
+{% endblock body_block %}
