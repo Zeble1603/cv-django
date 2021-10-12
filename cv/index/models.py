@@ -4,6 +4,7 @@ from django.utils import timezone
 # Create your models here.
 
 class Message(models.Model):
+    
     mail = models.EmailField(max_length = 254)
     text = models.TextField()
     read = models.BooleanField(default = False)

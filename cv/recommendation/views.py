@@ -27,6 +27,7 @@ class ValidRecoListView(ListView):
 class RecoListView(LoginRequiredMixin,ListView):
     model = Recommendation
     template_name = "reco_list.html"
+    login_url = '/login/'
 
     def get_queryset(self):
         return super().get_queryset().filter(
@@ -51,6 +52,7 @@ class RecoCreateView(CreateView):
 class RecoDetailView(LoginRequiredMixin,DetailView):
     model = Recommendation
     template_name = "reco_detail.html"
+    login_url = '/login/'
 
 
 class RecoUpdateView(LoginRequiredMixin,UpdateView):
@@ -58,11 +60,13 @@ class RecoUpdateView(LoginRequiredMixin,UpdateView):
     form_class = RecommendationForm
     template_name = "reco_update.html"
     redirect_field_name = "reco/reco_detail.html"
+    login_url = '/login/'
 
 
 class RecoDeleteView(LoginRequiredMixin,DeleteView):
     model = Recommendation
     success_url = reverse_lazy('reco:reco_list')
+    login_url = '/login/'
 
 
 # Function based views :

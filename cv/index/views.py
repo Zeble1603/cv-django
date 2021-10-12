@@ -50,6 +50,8 @@ class ThanksMessageView(TemplateView):
 class MessagesListView(LoginRequiredMixin,ListView):
     model = Message
     template_name = "my_messages.html"
+    login_url = '/login/'
+
 
     def get_queryset(self):
         return Message.objects.all().order_by('read')
@@ -72,6 +74,7 @@ class MessageCreateView(CreateView):
 class MessageDelete(DeleteView,LoginRequiredMixin):
     model = Message
     success_url = reverse_lazy('index:my_messages')
+    login_url = '/login/'
 
 
 #Function based views:
@@ -84,7 +87,7 @@ def download_cv(request):
         mime_type = mimetypes.guess_type(cv_path)
         response = HttpResponse(cv, headers={
         'Content-Type': mime_type,
-        'Content-Disposition': 'attachment; filename="{}"'.format(cv_name),})
+        'Content-Disposition': 'attachment; filename="{}"'.format(cv_name)})
     
     return response
 
