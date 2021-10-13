@@ -2,6 +2,7 @@ from django.http import response
 from django.test import TestCase, SimpleTestCase
 from django.shortcuts import reverse
 from .models import Message
+from . import views
 from django.contrib.auth.models import User
 
 
@@ -194,13 +195,6 @@ class MessageTests(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertContains(response, "test@gmail.com")   
 
-    #def test_read(self):
-        #log = self.client.post(reverse("account:login"),self.credentials, follow=True)
-        #self.assertTrue(log.context['user'].is_active)
-        #message = Message.objects.get(id=1)
-        #response = self.client.get(reverse("index:message_read", args=(message.id,)), follow = True)
-        #self.assertTrue(message.read)
-
 
     def test_get_delete_message(self):
         message = Message.objects.get(id=1)
@@ -208,6 +202,7 @@ class MessageTests(TestCase):
         self.assertTrue(log.context['user'].is_active)
         response = self.client.get(reverse("index:message_delete", args=(message.id,)), follow = True)
         self.assertContains(response, "Are you sure you want to delete this message ?")
+
 
     def test_post_delete_message(self):    
         message = Message.objects.get(id=1)
