@@ -154,6 +154,7 @@ class IndexPagesTest(SimpleTestCase):
         self.assertTemplateUsed(response, "thanks_message.html") 
 
 class LoginTests(TestCase):
+
     # We test the login process, the user creation, and the login page
 
     @classmethod
@@ -217,6 +218,8 @@ class MessageTests(TestCase):
         self.assertTrue(log.context['user'].is_active)
         post_response = self.client.post(reverse("index:message_delete", args=(message.id,)), follow = True)
         self.assertRedirects(post_response, reverse('index:my_messages'), status_code=302)
+        message_list = Message.objects.all().count()
+        self.assertEquals(message_list,0)
 
 
         
