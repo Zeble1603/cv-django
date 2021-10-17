@@ -44,10 +44,10 @@ class RecoListView(LoginRequiredMixin,ListView):
 
 class RecoCreateView(CreateView):
     model = Recommendation
+    form_class = RecommendationForm
     template_name = "reco_create.html"
     success_url = reverse_lazy('reco:thanks')
-    form_class = RecommendationForm
-
+    
 
 class RecoDetailView(LoginRequiredMixin,DetailView):
     model = Recommendation

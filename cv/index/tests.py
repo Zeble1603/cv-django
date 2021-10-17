@@ -1,6 +1,6 @@
 from django.http import response
 from django.test import TestCase, SimpleTestCase
-from django.shortcuts import reverse
+from django.urls import reverse
 
 from .models import Message
 from django.contrib.auth.models import User
