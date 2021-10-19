@@ -1,2 +1,2 @@
-release: python cv.manage.py migrate
+release: python manage.py migrate
 web: gunicorn cv.cv.wsgi --log-file -
