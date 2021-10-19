@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import os
 import environ
 
 # Initialize environement variables
@@ -38,7 +37,7 @@ ACCOUNT_DIR = BASE_DIR / 'account/templates/account'
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False 
+DEBUG = True 
 
 ALLOWED_HOSTS = ['blaisedecarvalho.herokuapp.com','127.0.0.1']
 
