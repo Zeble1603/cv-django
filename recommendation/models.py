@@ -13,7 +13,8 @@ class Recommendation(models.Model):
         ("I was his customer","I was his customer"),
         ("I heard about his skills","I heard about his skills"),
     ]
-
+    
+    id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length = 50)
     last_name = models.CharField(max_length = 50)
     job = models.CharField(max_length = 50)
